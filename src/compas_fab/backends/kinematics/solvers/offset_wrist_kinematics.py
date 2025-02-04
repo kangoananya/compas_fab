@@ -4,6 +4,16 @@ from .offset_wrist import inverse_kinematics_offset_wrist
 # The following parameters for UR robots are taken from the following website:
 # https://www.universal-robots.com/articles/ur/application-installation/dh-parameters-for-calculations-of-kinematics-and-dynamics/
 
+
+UR20_PARAMS = {
+    "d1":0.2363,
+    "a2":-0.8620,
+    "a3":-0.7287,
+    "d4":0.2010,
+    "d5":0.1593,
+    "d6":0.1543,
+}
+
 UR10_PARAMS = {
     "d1": 0.1273,
     "a2": -0.612,
@@ -119,3 +129,10 @@ class UR10eKinematics(OffsetWristKinematics):
     def __init__(self):
         params = [UR10e_PARAMS[k] for k in ["d1", "a2", "a3", "d4", "d5", "d6"]]
         super(UR10eKinematics, self).__init__(params)
+
+class UR20Kinematics(OffsetWristKinematics):
+    """Analytical IK solver for UR20 e-Series robots."""
+
+    def __init__(self):
+        params = [UR20_PARAMS[k] for k in ["d1", "a2", "a3", "d4", "d5", "d6"]]
+        super(UR20Kinematics, self).__init__(params)
