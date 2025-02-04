@@ -14,6 +14,7 @@ from .solvers import (
     UR5eKinematics,
     UR10Kinematics,
     UR10eKinematics,
+    UR20Kinematics,
     Staubli_TX260LKinematics,
     ABB_IRB4600_40_255Kinematics,
 )
@@ -33,6 +34,7 @@ __all__ = [
     "UR5eKinematics",
     "UR10Kinematics",
     "UR10eKinematics",
+    "UR20Kinematics",
     "Staubli_TX260LKinematics",
     "ABB_IRB4600_40_255Kinematics",
 ]

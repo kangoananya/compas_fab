@@ -143,6 +143,36 @@ class RobotLibrary(object):
         return robot
 
     @classmethod
+    def ur20(cls, client=None, load_geometry=True):
+        """Returns a UR20 robot.
+
+        The returned :class:`compas_fab.robots.Robot` object contains the robot model and semantics.
+
+        Parameters
+        ----------
+        client: object
+            Backend client. Default is `None`.
+        load_geometry: bool, optional
+            Default is `True`, which means that the geometry is loaded.
+            `False` can be used to speed up the creation of the robot.
+
+        Returns
+        -------
+        :class:`compas_fab.robots.Robot`
+            Newly created instance of the robot.
+        """
+
+        robot = cls._load_library_model(
+            urdf_filename=compas_fab.get("robot_library/ur20_robot/urdf/robot_description.urdf"),
+            srdf_filename=compas_fab.get("robot_library/ur20_robot/robot_description_semantic.srdf"),
+            local_package_mesh_folder="robot_library/ur20_robot",
+            client=client,
+            load_geometry=load_geometry,
+        )
+
+        return robot
+
+    @classmethod
     def abb_irb4600_40_255(cls, client=None, load_geometry=True):
         """Returns a ABB irb4600-40/2.55 robot.
 
